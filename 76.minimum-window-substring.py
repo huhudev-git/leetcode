@@ -106,7 +106,7 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    # print(s.minWindow("acbbaca", "aba"))
+    print(s.minWindow("acbbaca", "aba"))
     # print(s.minWindow("a", "b"))
     # print(s.minWindow("ADOBECODEBANC", "ABC"))
     # print(s.minWindow("a", "aa"))
