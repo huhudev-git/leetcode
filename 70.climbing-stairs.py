@@ -7,6 +7,9 @@
 # @lc code=start
 class Solution:
     def climbStairs(self, n: int) -> int:
+        """
+        DP
+        """
         dp = [0 for i in range(n + 3)]
         dp[0] = 0
         dp[1] = 1

@@ -10,6 +10,9 @@ from typing import List
 
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
+        """
+        回溯法
+        """
         result = []
         item = []
         self.gen(n, k, 0, item, result)

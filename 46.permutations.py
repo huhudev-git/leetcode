@@ -7,6 +7,9 @@
 # @lc code=start
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        回溯法
+        """
         result = []
         self.dfs(nums, 0, result)
         return result

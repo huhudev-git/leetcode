@@ -10,6 +10,9 @@ from typing import List
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
+        """
+        回溯法, DFS
+        """
         m = len(board)
         n = len(board[0])
         visit = [[False for _ in range(n)] for _ in range(m)]
