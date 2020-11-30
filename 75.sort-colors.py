@@ -8,7 +8,7 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        桶排序
         """
         table = {0: 0, 1: 0, 2: 0}
         for n in nums:
@@ -22,6 +22,9 @@ class Solution:
                 index += 1
 
     def sortColors(self, nums: List[int]) -> None:
+        """
+        三指针
+        """
         length = len(nums)
         zero = -1
         one = 0

@@ -7,6 +7,9 @@
 # @lc code=start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """
+        哈希表
+        """
         table = {n: i for i, n in enumerate(nums)}
         for i, n in enumerate(nums):
             other = table.get(target - n, None)
