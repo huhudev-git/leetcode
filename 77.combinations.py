@@ -47,14 +47,18 @@ class Solution:
 
         while True:
             for i in reversed(range(k)):
+                print(i, indices[i], i + n - k)
                 if indices[i] != i + n - k:
-                    break  # 可以理解为goto
+                    # 可以理解为goto
+                    break
             else:
                 return result
+            # print(i, indices, i + n - k)
 
-            indices[i] += 1  # goto 到这个位置
-            for j in range(i+1, k):
-                indices[j] = indices[j-1] + 1
+            # goto到这个位置
+            indices[i] += 1
+            for j in range(i + 1, k):
+                indices[j] = indices[j - 1] + 1
             result.append([pool[i] for i in indices])
 
 
