@@ -20,4 +20,23 @@ class Solution:
             else:
                 return [start + 1, end + 1]
 
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        for i1 in range(len(numbers)):
+            find = target - numbers[i1]
+            i2 = self.binsearch(find, numbers, i1)
+            if i2 != -1:
+                return [i1 + 1, i2 + 1]
+
+    def binsearch(self, target: int, arr: List[int], start: int):
+        end = len(arr)
+        while start < end:
+            mid = start + int((end - start) // 2)
+            if arr[mid] > target:
+                end = mid
+            elif arr[mid] < target:
+                start = mid + 1
+            else:
+                return mid
+        return -1
+
 # @lc code=end

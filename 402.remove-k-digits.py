@@ -16,6 +16,7 @@ class Solution:
         result = []
 
         for i in range(len(num)):
+            # 栈顶大于新的数字
             while result and result[-1] > num[i] and k > 0:
                 result.pop()
                 k -= 1

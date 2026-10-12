@@ -4,7 +4,11 @@
 # [3] Longest Substring Without Repeating Characters
 #
 
+from collections import defaultdict
+
 # @lc code=start
+
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         start = 0
@@ -59,9 +63,21 @@ class Solution:
                 word = s[begin: i+1]
         return result
 
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        table = {}  # 最后一次出现的下标
+        start = 0
+        result = 0
 
-if __name__ == "__main__":
-    s = Solution()
-    print(s.lengthOfLongestSubstring("dvdf"))
+        for i, c in enumerate(s):
+            if table.get(c, -1) >= start:  # 还在窗口内
+                start = table[c] + 1  # 上次出现的位置
+            table[c] = i
+            result = max(result, i - start + 1)
+        return result
+
+
+# if __name__ == "__main__":
+#     s = Solution()
+#     print(s.lengthOfLongestSubstring("dvdf"))
 
 # @lc code=end

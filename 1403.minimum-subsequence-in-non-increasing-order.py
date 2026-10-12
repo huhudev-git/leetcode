@@ -18,4 +18,6 @@ class Solution:
             arr_total -= item
             result_total += item
         return result
+
+
 # @lc code=end

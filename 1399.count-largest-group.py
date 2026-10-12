@@ -22,4 +22,5 @@ class Solution:
             total = total + dig
             n = n // 10
         return total
+
 # @lc code=end

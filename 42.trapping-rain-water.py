@@ -42,6 +42,27 @@ class Solution:
                 visit[x] = True
         return result
 
+    def trap(self, height: List[int]) -> int:
+        pre_max = [height[0]]
+        post_max = [height[-1]]
+        length = len(height)
+
+        for i in range(1, length):
+            pre_h = height[i]
+            post_h = height[length - i - 1]
+
+            pre_max.append(max(pre_h, pre_max[-1]))
+            post_max.append(max(post_h, post_max[-1]))
+
+        post_max = list(reversed(post_max))
+        result = 0
+
+        for i in range(length):
+            h = min(pre_max[i], post_max[i])
+            result += (h - height[i])
+
+        return result
+
 
 if __name__ == "__main__":
     s = Solution()
