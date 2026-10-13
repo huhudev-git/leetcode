@@ -31,6 +31,18 @@ class Solution:
                     max_value = max(max_value, i * heights[now_idx])
         return max_value
 
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        stack = []
+        heights.append(0)
+        result = 0
+
+        for i, h in enumerate(heights):
+            while stack and heights[stack[-1]] > h:
+                index = stack.pop()
+                left = stack[-1] if stack else -1  # 左边第一根比它矮的柱子的下标
+                result = max(result, (i - left - 1) * heights[index])
+            stack.append(i)  # 比 i 高的柱子要先全部弹出去，i 才能放进栈
+        return result
 
 # if __name__ == "__main__":
 #     s = Solution()

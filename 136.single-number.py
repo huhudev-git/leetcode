@@ -18,4 +18,9 @@ class Solution:
             if v == 1:
                 return k
 
+    def singleNumber(self, nums: List[int]) -> int:
+        result = 0
+        for n in nums:
+            result ^= n
+        return result
 # @lc code=end

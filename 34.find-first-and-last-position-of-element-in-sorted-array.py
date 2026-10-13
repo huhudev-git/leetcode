@@ -63,6 +63,50 @@ class Solution:
 
         return [left, right]
 
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        result = [-1, -1]
+        if not nums:
+            return result
+
+        l, r = 0, len(nums) - 1
+
+        while l < r:
+            mid = l + (r - l) // 2
+            if nums[mid] < target:
+                l = mid + 1
+            elif nums[mid] > target:
+                r = mid
+            else:
+                # abbbb  abbbb
+                #  |       |
+                if mid == 0 or nums[mid - 1] < target:
+                    result[0] = mid
+                    break
+                r = mid
+
+        if nums[l] == target:
+            result[0] = l
+
+        l, r = result[0], len(nums) - 1
+        while l < r:
+            mid = l + (r - l) // 2
+            if nums[mid] < target:
+                l = mid + 1
+            elif nums[mid] > target:
+                r = mid
+            else:
+                # abbbbc  abbbbc
+                #     |      |
+                if mid == len(nums) - 1 or nums[mid + 1] > target:
+                    result[1] = mid
+                    break
+                l = mid + 1
+
+        if nums[r] == target:
+            result[1] = r
+
+        return result
+
 
 if __name__ == "__main__":
     s = Solution()
