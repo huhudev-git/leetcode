@@ -20,4 +20,19 @@ class Solution:
         for k in table:
             result.append(table[k])
         return result
+
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        def build_tuple(str):
+            c = [0] * 26
+            for s in str:
+                c[ord(s) - ord('a')] += 1
+            return tuple(c)
+
+        table = {}
+        for str in strs:
+            t = build_tuple(str)
+            if t not in table:
+                table[t] = []
+            table[t].append(str)
+        return list(table.values())
 # @lc code=end
